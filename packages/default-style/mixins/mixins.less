@@ -1,0 +1,83 @@
+.btn-type(@type) {
+  @type-color: ~"@{btn-@{type}}";
+  @type-alpha-4: ~"@{btn-@{type}-alpha-4}";
+  @type-alpha-5: ~"@{btn-@{type}-alpha-5}";
+  @type-lighten-4: ~"@{btn-@{type}-lighten-4}";
+  &.c-btn__@{type} {
+    background-color: @type-color;
+    border-color: @type-color;
+    color: @white;
+    .ripples(@white);
+    &:active,
+    &:focus {
+      box-shadow: 0 0 0 3px @type-alpha-4;
+    }
+    &.is-disabled {
+      cursor: not-allowed;
+      background-color: @type-alpha-4;
+      border: 1px solid transparent;
+    }
+    &.is-plain {
+      background-color: @white;
+      color: @type-color;
+      .ripples(@type-color);
+      &.is-disabled {
+        cursor: not-allowed;
+        background-color: @type-lighten-4;
+        border: 1px solid @type-alpha-4;
+        color: @type-alpha-5;
+      }
+    }
+  }
+}
+.btn-size(@size) {
+  @height: ~"@{btn-@{size}-height}";
+  @padding: ~"@{btn-@{size}-padding}";
+  @fontSize: ~"@{btn-@{size}-fontSize}";
+  @radius: ~"@{btn-@{size}-radius}";
+  &.c-btn__@{size} {
+    height: @height;
+    line-height: @height;
+    border-radius: @radius;
+    padding: 0 @padding;
+    font-size: @fontSize;
+    &.is-round {
+      border-radius: @height;
+    }
+  }
+}
+// 批量生成类型按钮
+.batch-btn-type(@n, @i: 1) when (@i =< @n) {
+  @type: extract(@btn-type-list, @i);
+  .btn-type(@type);
+  .batch-btn-type(@n, (@i + 1));
+}
+
+.batch-btn-size(@n, @i: 1) when (@i =< @n) {
+  @size: extract(@btn-size-list, @i);
+  .btn-size(@size);
+  .batch-btn-size(@n, (@i + 1));
+}
+
+.ripples(@color) {
+  & .ripples {
+    position: absolute;
+    background: @color;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s ease-in-out infinite;
+  }
+}
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}

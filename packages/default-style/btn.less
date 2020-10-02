@@ -1,0 +1,40 @@
+@import "./mixins/color.less";
+@import "./mixins/var.less";
+@import "./mixins/mixins.less";
+.c-btn {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  background-color: @white;
+  border: 1px solid @border-default-color;
+  height: @btn-medium-height;
+  line-height: @btn-medium-height;
+  padding: 0 @btn-medium-padding;
+  line-height: 1;
+  white-space: nowrap;
+  font-size: @font-main-size;
+  margin: 0;
+  border-radius: @border-main-radius;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.2s;
+  &:hover {
+    background-color: rgba(@black, 54%);
+    color: @white;
+  }
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(@black, 0.3);
+  }
+  & + & {
+    margin-left: 8px;
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    background-color: @btn-default-lighten-4;
+    border: 1px solid @btn-default-alpha-4;
+    color: @btn-default-alpha-5;
+  }
+  .batch-btn-type(length(@btn-type-list));
+  .batch-btn-size(length(@btn-size-list));
+}
