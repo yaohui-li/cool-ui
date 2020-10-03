@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-29 22:57:29
- * @LastEditTime: 2020-10-02 22:04:50
+ * @LastEditTime: 2020-10-03 11:36:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \cool-ui\examples\views\Home.vue
@@ -90,6 +90,65 @@
         size="mini"
         type="warning"
       >迷你按钮</c-btn>
+    </div>
+    <div class="btn-demo">
+      <c-btn
+        circle
+        icon="trash-o"
+        size="medium"
+        type="danger"
+      ></c-btn>
+      <c-btn
+        circle
+        icon="pencil"
+        size="medium"
+        type="primary"
+      ></c-btn>
+      <c-btn
+        circle
+        icon="check"
+        size="medium"
+        type="success"
+      ></c-btn>
+      <c-btn
+        circle
+        icon="envelope-o"
+        size="medium"
+        type="info"
+      ></c-btn>
+      <c-btn
+        circle
+        icon="star"
+        size="medium"
+        type="warning"
+      ></c-btn>
+      <c-btn
+        circle
+        icon="search"
+        size="medium"
+      ></c-btn>
+      <c-btn
+        icon="search"
+        size="medium"
+        type="primary"
+      >搜索</c-btn>
+      <c-btn
+        size="medium"
+        type="primary"
+      >
+        上传
+        <c-icon name="cloud-upload"></c-icon>
+      </c-btn>
+      <c-btn
+        icon="share-alt"
+        size="medium"
+        type="primary"
+      ></c-btn>
+      <c-btn
+        loading
+        size="medium"
+        type="primary"
+      >加载中...</c-btn>
     </div>
   </div>
 </template>

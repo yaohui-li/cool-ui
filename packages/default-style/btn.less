@@ -8,7 +8,6 @@
   background-color: @white;
   border: 1px solid @border-default-color;
   height: @btn-medium-height;
-  line-height: @btn-medium-height;
   padding: 0 @btn-medium-padding;
   line-height: 1;
   white-space: nowrap;
@@ -18,6 +17,9 @@
   cursor: pointer;
   overflow: hidden;
   transition: 0.2s;
+  & .fa + .c-btn__text {
+    margin-left: 4px;
+  }
   &:hover {
     background-color: rgba(@black, 54%);
     color: @white;

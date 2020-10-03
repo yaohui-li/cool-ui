@@ -1,9 +1,9 @@
 <template>
   <i
     :class="[
-      iconName,
+      name ? `fa-${this.name}` : '',
       {
-        'fa-spinner fa-pulse': loading
+        'fa-pulse': loading
       }
     ]"
     :style="{ fontSize: size, width: size }"
@@ -17,14 +17,9 @@ export default {
   props: {
     name: String,
     loading: Boolean,
-    size: String
+    size: String,
   },
-  computed: {
-    iconName () {
-      return this.name && this.name !== 'spinner' ? `fa-${this.name}` : ''
-    }
-  }
-}
+};
 </script>
 <style lang="less" scoped>
 .reset-width {

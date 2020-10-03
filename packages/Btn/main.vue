@@ -6,23 +6,37 @@
       {
         'is-plain': plain,
         'is-round': round,
-        'is-disabled': disabled
+        'is-circle': circle,
+        'is-disabled': disabled,
+        'is-loading': loading
       }
     ]"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :type="nativeType"
     @click="handleClick($event)"
     class="c-btn"
   >
-    <slot></slot>
+    <c-icon
+      :loading="loading"
+      name="spinner"
+      v-if="loading"
+    ></c-icon>
+    <c-icon
+      :name="icon"
+      v-if="icon && !loading"
+    ></c-icon>
+    <span
+      class="c-btn__text"
+      v-if="$slots.default"
+    >
+      <slot></slot>
+    </span>
   </button>
 </template>
 
 <script>
 /* TODO 
-  1. 图标按钮
-  2. 圆形按钮
-  3. 加载按钮
+  1. 加载按钮
 */
 export default {
   name: 'CBtn',
@@ -36,6 +50,9 @@ export default {
     disabled: Boolean,
     round: Boolean,
     nativeType: String,
+    icon: String,
+    circle: Boolean,
+    loading: Boolean,
   },
   methods: {
     handleClick(e) {
@@ -51,13 +68,13 @@ export default {
     },
     // 添加涟漪元素和定位
     addRipples(event) {
-      const x = event.clientX - event.target.offsetLeft;
-      const y = event.clientY - event.target.offsetTop;
+      const x = event.clientX - event.currentTarget.offsetLeft;
+      const y = event.clientY - event.currentTarget.offsetTop;
       const ripples = document.createElement('span');
       ripples.className = 'ripples';
       ripples.style.left = `${x}px`;
       ripples.style.top = `${y}px`;
-      event.target.appendChild(ripples);
+      event.currentTarget.appendChild(ripples);
       return ripples;
     },
   },

@@ -12,20 +12,24 @@
     &:focus {
       box-shadow: 0 0 0 3px @type-alpha-4;
     }
+    &.is-loading,
     &.is-disabled {
       cursor: not-allowed;
       background-color: @type-alpha-4;
       border: 1px solid transparent;
+      box-shadow: none;
     }
     &.is-plain {
       background-color: @white;
       color: @type-color;
       .ripples(@type-color);
+      &.is-loading,
       &.is-disabled {
         cursor: not-allowed;
         background-color: @type-lighten-4;
         border: 1px solid @type-alpha-4;
         color: @type-alpha-5;
+        box-shadow: none;
       }
     }
   }
@@ -37,12 +41,16 @@
   @radius: ~"@{btn-@{size}-radius}";
   &.c-btn__@{size} {
     height: @height;
-    line-height: @height;
     border-radius: @radius;
     padding: 0 @padding;
     font-size: @fontSize;
     &.is-round {
       border-radius: @height;
+    }
+    &.is-circle {
+      width: @height;
+      padding: 0;
+      border-radius: 50%;
     }
   }
 }
