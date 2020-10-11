@@ -35,9 +35,7 @@
 </template>
 
 <script>
-/* TODO 
-  1. 加载按钮
-*/
+import { removeNode } from '../utils/dom';
 export default {
   name: 'CBtn',
   props: {
@@ -58,7 +56,7 @@ export default {
     handleClick(e) {
       const ripples = this.addRipples(e);
       let timer = setTimeout(() => {
-        ripples.remove();
+        removeNode(ripples);
       }, 1000);
       this.$once('hook:beforeDestory', () => {
         clearTimeout(timer);
@@ -68,15 +66,22 @@ export default {
     },
     // 添加涟漪元素和定位
     addRipples(event) {
-      const x = event.clientX - event.currentTarget.offsetLeft;
-      const y = event.clientY - event.currentTarget.offsetTop;
-      const ripples = document.createElement('span');
+      const x = event.clientX - event.currentTarget.offsetLeft,
+        y = event.clientY - event.currentTarget.offsetTop,
+        ripples = document.createElement('span');
       ripples.className = 'ripples';
       ripples.style.left = `${x}px`;
       ripples.style.top = `${y}px`;
       event.currentTarget.appendChild(ripples);
       return ripples;
     },
+    /* removeNode(node) {
+      if (node.parentNode) {
+        node.parentNode.removeChild(node);
+      } else {
+        node.remove();
+      }
+    }, */
   },
 };
 </script>

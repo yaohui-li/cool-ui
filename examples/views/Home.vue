@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-29 22:57:29
- * @LastEditTime: 2020-10-03 11:36:08
+ * @LastEditTime: 2020-10-11 22:41:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \cool-ui\examples\views\Home.vue
@@ -13,142 +13,21 @@
       src="../assets/logo.png"
     />
     <p>欢迎使用Vue组件库项目</p>
-    <div class="btn-demo">
-      <c-btn
-        disabled
-        round
-      >默认按钮</c-btn>
-      <c-btn
-        disabled
-        type="primary"
-      >主要按钮</c-btn>
-      <c-btn type="success">成功按钮</c-btn>
-      <c-btn type="warning">警告按钮</c-btn>
-      <c-btn type="danger">危险按钮</c-btn>
-      <c-btn type="info">信息按钮</c-btn>
-    </div>
-    <div class="btn-demo">
-      <c-btn
-        disabled
-        plain
-        type="primary"
-      >主要按钮</c-btn>
-      <c-btn
-        plain
-        type="success"
-      >成功按钮</c-btn>
-      <c-btn
-        plain
-        type="warning"
-      >警告按钮</c-btn>
-      <c-btn
-        plain
-        type="danger"
-      >危险按钮</c-btn>
-      <c-btn
-        plain
-        type="info"
-      >信息按钮</c-btn>
-    </div>
-    <div class="btn-demo">
-      <c-btn
-        size="larger"
-        type="primary"
-      >超大按钮</c-btn>
-      <c-btn
-        size="medium"
-        type="success"
-      >中等按钮</c-btn>
-      <c-btn
-        size="small"
-        type="danger"
-      >小型按钮</c-btn>
-      <c-btn
-        size="mini"
-        type="warning"
-      >迷你按钮</c-btn>
-    </div>
-    <div class="btn-demo">
-      <c-btn
-        round
-        size="larger"
-        type="primary"
-      >超大按钮</c-btn>
-      <c-btn
-        round
-        size="medium"
-        type="success"
-      >中等按钮</c-btn>
-      <c-btn
-        round
-        size="small"
-        type="danger"
-      >小型按钮</c-btn>
-      <c-btn
-        disabled
-        round
-        size="mini"
-        type="warning"
-      >迷你按钮</c-btn>
-    </div>
-    <div class="btn-demo">
-      <c-btn
-        circle
-        icon="trash-o"
-        size="medium"
-        type="danger"
-      ></c-btn>
-      <c-btn
-        circle
-        icon="pencil"
-        size="medium"
-        type="primary"
-      ></c-btn>
-      <c-btn
-        circle
-        icon="check"
-        size="medium"
-        type="success"
-      ></c-btn>
-      <c-btn
-        circle
-        icon="envelope-o"
-        size="medium"
-        type="info"
-      ></c-btn>
-      <c-btn
-        circle
-        icon="star"
-        size="medium"
-        type="warning"
-      ></c-btn>
-      <c-btn
-        circle
-        icon="search"
-        size="medium"
-      ></c-btn>
-      <c-btn
-        icon="search"
-        size="medium"
-        type="primary"
-      >搜索</c-btn>
-      <c-btn
-        size="medium"
-        type="primary"
+    <div class="demo-wrapper">
+      <c-scrollbar
+        :bar-size="8"
+        bar-color="#44ccaa"
       >
-        上传
-        <c-icon name="cloud-upload"></c-icon>
-      </c-btn>
-      <c-btn
-        icon="share-alt"
-        size="medium"
-        type="primary"
-      ></c-btn>
-      <c-btn
-        loading
-        size="medium"
-        type="primary"
-      >加载中...</c-btn>
+        <ul class="list">
+          <li class="list-item">情人蛋糕</li>
+          <li class="list-item">双皮奶</li>
+          <li class="list-item">龙须面</li>
+          <li class="list-item">干拌面</li>
+          <li class="list-item">北京烤鸭</li>
+          <li class="list-item">样子甘露</li>
+          <li class="list-item">意大利面</li>
+        </ul>
+      </c-scrollbar>
     </div>
   </div>
 </template>
@@ -159,7 +38,25 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.btn-demo + .btn-demo {
-  margin-top: 10px;
+.demo-wrapper {
+  min-width: 240px;
+  width: 240px;
+  height: 180px;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.25);
+}
+.list {
+  list-style-type: none;
+  // width: 300px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: left;
+  max-height: 180px;
+  border-radius: 4px;
+  .list-item {
+    padding: 0 16px;
+    line-height: 36px;
+  }
 }
 </style>

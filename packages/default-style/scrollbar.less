@@ -1,0 +1,39 @@
+.c-scrollbar-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  .c-scrollbar-content {
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+  .c-scrollbar-track {
+    &.is-vertical {
+      position: absolute;
+      right: 2px;
+      top: 0;
+      height: 100%;
+      .c-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #90a4ae;
+        cursor: pointer;
+      }
+    }
+    &.is-horizontal {
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      .c-scrollbar-thumb {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}

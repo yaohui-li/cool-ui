@@ -1,21 +1,23 @@
-import Icon from './Icon/index';
-import Button from './Btn/index';
+import Icon from "./Icon/index";
+import Button from "./Btn/index";
+import Scrollbar from "./Scrollbar/index";
 
-const components = [Icon, Button];
+const components = [Icon, Button, Scrollbar];
 
-const install = function(Vue) {
+var install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
+if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
 export default {
-  version: '0.1.0',
+  version: "0.1.0",
   install,
   Icon,
-  Button
+  Button,
+  Scrollbar
 };
