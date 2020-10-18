@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-09-29 22:57:29
- * @LastEditTime: 2020-10-11 22:41:59
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \cool-ui\examples\views\Home.vue
--->
 <template>
   <div style="text-align:center">
     <img
@@ -14,20 +6,78 @@
     />
     <p>欢迎使用Vue组件库项目</p>
     <div class="demo-wrapper">
-      <c-scrollbar
-        :bar-size="8"
-        bar-color="#44ccaa"
+      <c-row :gap="10">
+        <c-col
+          :lg="3"
+          :md="4"
+          :sm="6"
+          :xl="1"
+          :xs="8"
+        >
+          <div></div>
+        </c-col>
+        <c-col
+          :lg="9"
+          :md="8"
+          :sm="6"
+          :xl="11"
+          :xs="4"
+        >
+          <div></div>
+        </c-col>
+        <c-col
+          :lg="9"
+          :md="8"
+          :sm="6"
+          :xl="11"
+          :xs="4"
+        >
+          <div></div>
+        </c-col>
+        <c-col
+          :lg="3"
+          :md="4"
+          :sm="6"
+          :xl="1"
+          :xs="{ span: 5, offset: 3}"
+        >
+          <div></div>
+        </c-col>
+      </c-row>
+      <!-- <c-row :gap="10">
+        <c-col :span="4">
+          <div>4</div>
+        </c-col>
+        <c-col :span="4">
+          <div>4</div>
+        </c-col>
+        <c-col :span="4">
+          <div>4</div>
+        </c-col>
+      </c-row>
+      <c-row :gap="10">
+        <c-col :span="6">
+          <div>6</div>
+        </c-col>
+        <c-col :span="6">
+          <div>6</div>
+        </c-col>
+      </c-row>
+      <c-row
+        :gap="10"
+        align="middle"
+        justify="center"
       >
-        <ul class="list">
-          <li class="list-item">情人蛋糕</li>
-          <li class="list-item">双皮奶</li>
-          <li class="list-item">龙须面</li>
-          <li class="list-item">干拌面</li>
-          <li class="list-item">北京烤鸭</li>
-          <li class="list-item">样子甘露</li>
-          <li class="list-item">意大利面</li>
-        </ul>
-      </c-scrollbar>
+        <c-col :span="4">
+          <div>4</div>
+        </c-col>
+        <c-col
+          :offset="2"
+          :span="4"
+        >
+          <div>4</div>
+        </c-col>
+      </c-row>-->
     </div>
   </div>
 </template>
@@ -39,24 +89,21 @@ export default {
 </script>
 <style lang="less" scoped>
 .demo-wrapper {
-  min-width: 240px;
-  width: 240px;
-  height: 180px;
-  margin: 0 auto;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.25);
-}
-.list {
-  list-style-type: none;
-  // width: 300px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-align: left;
-  max-height: 180px;
-  border-radius: 4px;
-  .list-item {
-    padding: 0 16px;
-    line-height: 36px;
+  padding: 12px;
+  .c-row {
+    height: 48px;
+  }
+  .c-col {
+    div {
+      height: 36px;
+      background: #607d8b;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 36px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 }
 </style>

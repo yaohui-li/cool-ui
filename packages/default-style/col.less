@@ -1,0 +1,65 @@
+@import "./mixins/var.less";
+.c-col {
+  box-sizing: border-box;
+  &.c-col-0 {
+    display: none;
+  }
+  .col-style(24);
+  .media-col-style(length(@col-media-rules));
+}
+.col-style(@n, @i: 1) when (@i =< @n) {
+  &.c-col-@{i} {
+    width: (@i / 24 * 100) * 1%;
+  }
+  &.c-col-offset-@{i} {
+    margin-left: (@i / 24 * 100) * 1%;
+  }
+  &.c-col-pull-@{i} {
+    position: relative;
+    right: (@i / 24 * 100) * 1%;
+  }
+  &.c-col-push-@{i} {
+    position: relative;
+    left: (@i / 24 * 100) * 1%;
+  }
+  .col-style(@n, (@i + 1));
+}
+.media-col-style(@n, @i: 1) when(@i =< @n) {
+  @type: extract(@col-media-rules, @i);
+  .media-is-xs(@type);
+  .media-col-style(@n, (@i + 1));
+}
+.loop(@counter,@type) when (@counter > 0) {
+  .loop((@counter - 1), @type);
+  &.c-col-@{type}-@{counter} {
+    width: (@counter / 24 * 100) * 1%;
+  }
+  &.c-col-@{type}-offset-@{counter} {
+    margin-left: (@i / 24 * 100) * 1%;
+  }
+  &.c-col-@{type}-pull-@{counter} {
+    position: relative;
+    right: (@i / 24 * 100) * 1%;
+  }
+  &.c-col-@{type}-push-@{counter} {
+    position: relative;
+    left: (@i / 24 * 100) * 1%;
+  }
+}
+.media-is-xs(@type) when (@@type > @xs) {
+  @media (min-width: @@type) {
+    .col-hidden(@type, 0);
+    .loop(24, @type);
+  }
+}
+.media-is-xs(@type) when (@@type = @xs) {
+  @media (max-width: @@type) {
+    .col-hidden(@type, 0);
+    .loop(24, @type);
+  }
+}
+.col-hidden(@type, @value) {
+  &.c-col-@{type}-@{value} {
+    display: none;
+  }
+}

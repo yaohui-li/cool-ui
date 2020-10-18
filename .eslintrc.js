@@ -15,7 +15,7 @@ module.exports = {
     "no-trailing-spaces": "off",
     indent: "off",
     "spaced-comment": "off",
-    "no-trailing-spaces": "off",
+    "one-var": ["error", "always"],
     "no-new": "off",
     "key-spacing": "off",
     "comma-dangle": "off",

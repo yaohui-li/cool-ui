@@ -1,8 +1,10 @@
 import Icon from "./Icon/index";
 import Button from "./Btn/index";
 import Scrollbar from "./Scrollbar/index";
+import Row from "./Row/index";
+import Col from "./Col/index";
 
-const components = [Icon, Button, Scrollbar];
+const components = [Icon, Button, Scrollbar, Row, Col];
 
 var install = function(Vue) {
   components.forEach(component => {
@@ -19,5 +21,7 @@ export default {
   install,
   Icon,
   Button,
-  Scrollbar
+  Scrollbar,
+  Row,
+  Col
 };

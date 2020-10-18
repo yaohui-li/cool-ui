@@ -1,0 +1,47 @@
+.c-row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  box-sizing: border-box;
+  .batch-justify-type(length(@justify-types));
+  .batch-align-type(length(@align-types));
+}
+.batch-justify-type(@n, @i: 1) when (@i =< @n) {
+  @type: extract(@justify-types, @i);
+  &.is-justify-@{type} {
+    .justify(@type);
+  }
+  .batch-justify-type(@n, (@i + 1));
+}
+.batch-align-type(@n, @i: 1) when(@i =< @n) {
+  @type: extract(@align-types, @i);
+  &.is-align-@{type} {
+    .align(@type);
+  }
+  .batch-align-type(@n, (@i + 1));
+}
+.align(@type) when(@type = top) {
+  align-items: flex-start;
+}
+.align(@type) when(@type = middle) {
+  align-items: center;
+}
+.align(@type) when(@type = bottom) {
+  align-items: flex-end;
+}
+
+.justify(@type) when(@type = start) {
+  justify-content: flex-start;
+}
+.justify(@type) when(@type = end) {
+  justify-content: flex-end;
+}
+.justify(@type) when(@type = center) {
+  justify-content: center;
+}
+.justify(@type) when(@type = between) {
+  justify-content: space-between;
+}
+.justify(@type) when(@type = around) {
+  justify-content: space-around;
+}
