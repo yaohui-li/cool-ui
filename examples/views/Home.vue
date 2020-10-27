@@ -6,14 +6,13 @@
     />
     <p>欢迎使用Vue组件库项目</p>
     <div class="demo-wrapper">
-      <c-container direction="vertical">
-        <c-header :padding="[0, '20px']"></c-header>
-        <c-main style="width: 100%;height: 200px"></c-main>
-        <!-- <c-container>
-          <c-aside style="width: 120px; height: 200px"></c-aside>
-        </c-container>-->
-        <c-footer :padding="[0, '16px']"></c-footer>
-      </c-container>
+      <c-input
+        clearable
+        placeholder="请输入搜索内容"
+        prefix-icon="search"
+        show-password
+        v-model="text"
+      ></c-input>
     </div>
   </div>
 </template>
@@ -21,11 +20,17 @@
 <script>
 export default {
   name: 'Home',
+  data() {
+    return {
+      text: '123',
+    };
+  },
 };
 </script>
 <style lang="less" scoped>
 .demo-wrapper {
   padding: 12px;
+  width: 260px;
   .c-header {
     background: brown;
   }

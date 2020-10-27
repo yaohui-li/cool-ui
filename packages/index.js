@@ -8,6 +8,7 @@ import Header from "./Header/index";
 import Aside from "./Aside/index";
 import Main from "./Main/index";
 import Footer from "./Footer/index";
+import Input from "./Input/index";
 
 const components = [
   Icon,
@@ -19,7 +20,8 @@ const components = [
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  Input
 ];
 
 var install = function(Vue) {
@@ -44,5 +46,6 @@ export default {
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  Input
 };
