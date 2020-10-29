@@ -1,13 +1,7 @@
 <template>
   <i
-    :class="[
-      name ? `fa-${this.name}` : '',
-      {
-        'fa-pulse': loading
-      }
-    ]"
-    :style="{ fontSize: size, width: size }"
-    class="fa fa-fw reset-width"
+    :class="[name ? `c-icon-${name}` : '']"
+    class="c-icon"
   ></i>
 </template>
 

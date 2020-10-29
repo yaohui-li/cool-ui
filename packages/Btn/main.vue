@@ -18,7 +18,7 @@
   >
     <c-icon
       :loading="loading"
-      name="spinner"
+      name="loading"
       v-if="loading"
     ></c-icon>
     <c-icon

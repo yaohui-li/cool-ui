@@ -81,25 +81,25 @@
     <div class="btn-demo">
       <c-btn
         circle
-        icon="trash-o"
+        icon="delete"
         size="medium"
         type="danger"
       ></c-btn>
       <c-btn
         circle
-        icon="pencil"
+        icon="edit"
         size="medium"
         type="primary"
       ></c-btn>
       <c-btn
         circle
-        icon="check"
+        icon="true"
         size="medium"
         type="success"
       ></c-btn>
       <c-btn
         circle
-        icon="envelope-o"
+        icon="email"
         size="medium"
         type="info"
       ></c-btn>
@@ -124,10 +124,10 @@
         type="primary"
       >
         上传
-        <c-icon name="cloud-upload"></c-icon>
+        <c-icon name="upload"></c-icon>
       </c-btn>
       <c-btn
-        icon="share-alt"
+        icon="delete"
         size="medium"
         type="primary"
       ></c-btn>

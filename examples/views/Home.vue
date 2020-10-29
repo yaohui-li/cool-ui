@@ -6,13 +6,11 @@
     />
     <p>欢迎使用Vue组件库项目</p>
     <div class="demo-wrapper">
-      <c-input
-        clearable
-        placeholder="请输入搜索内容"
-        prefix-icon="search"
-        show-password
-        v-model="text"
-      ></c-input>
+      <i class="c-icon c-icon-edit"></i>
+      <i class="c-icon c-icon-upload"></i>
+      <i class="c-icon c-icon-delete"></i>
+      <i class="c-icon c-icon-search"></i>
+      <i class="c-icon c-icon-loading"></i>
     </div>
   </div>
 </template>
@@ -22,6 +20,7 @@ export default {
   name: 'Home',
   data() {
     return {
+      max: 10,
       text: '123',
     };
   },
